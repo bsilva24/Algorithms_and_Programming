@@ -18,16 +18,15 @@ def aplicacao():
     window.title('STARTLIS - STARTUPS LISBOA')
     window.resizable(False, False)
     window.geometry('600x450+584+230')
-    window.iconbitmap(r'./Files/Image/trolito.ico')
     
     labelwel = Label(window)
     labelwel.place(relx=0.25, rely=0.067, height=35, width=305)
     labelwel.configure(background="#0082ba", foreground="white", relief='ridge', text='''Seja bem-vindo!''')
     
-    '''img1 = PhotoImage(file="./Files/Image/img1.png")
+    img1 = PhotoImage(file="./Files/Image/img1.png")
     labelimg = Label(window)
     labelimg.place(relx=0.317, rely=0.211, height=145, width=225)
-    labelimg.configure(relief='ridge', image=img1 )'''
+    labelimg.configure(relief='ridge', image=img1 )
     
     frame1 = Frame(window)
     frame1.place(relx=0.25, rely=0.667, relheight=0.190, relwidth=0.508)
@@ -42,7 +41,7 @@ def aplicacao():
     buttonclose.configure(text='''Fechar Programa''', pady="0", width=267, background="#0082ba", foreground="white")
     
     labelopt = Label(window)
-    labelopt.place(relx=0.25, rely=0.6, height=31, width=109)
+    labelopt.place(relx=0.25, rely=0.6, height=31, width=125)
     labelopt.configure(relief='groove', text='''Menu de Opções:''', foreground="white", background="#0082ba")
                     
     topmenu(window)
@@ -159,7 +158,7 @@ def menuLista():
     for i in range(len(empresas)):
         lista = " {:14s} [{}]".format(empresas[i][0], i+1) + "\n"
         t.insert(END, lista)
-    t.place(relx=0.197, rely=0.176, relheight=0.624, relwidth=0.56)
+    t.place(relx=0.138, rely=0.176, relheight=0.624, relwidth=0.68)
     t.configure(width=174, state='disabled')
     
     frame2 = Frame(window9)
@@ -176,24 +175,24 @@ def menuLista():
     
     label1 = Label(frame21)
     label1.place(relx=0.0, rely=-0.020, height=30, width=63)
-    label1.configure(borderwidth="2", relief='raised', text='''Nº Startup:''')
+    label1.configure(borderwidth="2", relief='raised', text='''Startup:''')
     
     global spinbox1
     spinbox1 = Spinbox(frame21, from_=1.0, to=len(empresas))
     spinbox1.place(relx=0.272, rely=0.22, relheight=0.559, relwidth=0.097)
     
     button1 = Button(frame21)
-    button1.place(relx=0.389, rely=-0.020, height=30, width=153)
+    button1.place(relx=0.389, rely=-0.020, height=30, width=175)
     button1.configure(pady="0")
     button1.configure(text='Abrir Selecionado', command=menuStartupSel)
     
     button2 = Button(frameopt)
     button2.place(relx=0.035, rely=0.543, height=24, width=257)
-    button2.configure(pady="0", text='Visualizar Gráfico Linear de Investimentos', command=mostrarGrafLin)
+    button2.configure(pady="0", text='Gráfico Linear de Investimentos', command=mostrarGrafLin)
     
     button3 = Button(frameopt)
     button3.place(relx=0.035, rely=0.743, height=24, width=257)
-    button3.configure(pady="0", text='Visualizar Gráfico Circular de Investimentos', command=grafStartupCircular)
+    button3.configure(pady="0", text='Gráfico Circular de Investimentos', command=grafStartupCircular)
     
     button4 = Button(frameopt)
     button4.place(relx=0.035, rely=0.343, height=24, width=257)
@@ -314,7 +313,7 @@ def menuStartupSel():
     
     labelname = Label(frametxt)
     labelname.place(relx=0.017, rely=0.116, height=31, width=109)
-    labelname.configure(background="#0082ba", foreground="white", relief='ridge', text='''Nome da Startup:''')
+    labelname.configure(background="#0082ba", foreground="white", relief='ridge', text='''Nome:''')
     
     nome = empresas[n-1][0]
     invest = "{} €".format(empresas[n-1][1])
@@ -386,7 +385,7 @@ def menuStartupSel():
         ax1.xaxis.set_major_formatter(formatter)
         df1.plot(kind='barh', legend=False, ax=ax1)
         
-        window5.mainloop()
+        window12.mainloop()
 
     buttondel = Button(frameopt)
     buttondel.place(relx=0.035, rely=0.645, height=24, width=257)
@@ -394,14 +393,14 @@ def menuStartupSel():
     
     buttongraf = Button(frameopt)
     buttongraf.place(relx=0.035, rely=0.387, height=24, width=257)
-    buttongraf.configure(pady="0", text='''Visualizar Gráfico de Investimento Invididual''', command=grafIndividual)
+    buttongraf.configure(pady="0", text='''Gráfico de Investimento Invididual''', command=grafIndividual)
     
     buttonweb = Button(frameopt)
     buttonweb.place(relx=0.035, rely=0.129, height=24, width=257)
     buttonweb.configure(pady="0", text='''Abrir Website''', command=abrirWebsite)
     
     labelopt = Label(frame2)
-    labelopt.place(relx=0.016, rely=0.352, height=31, width=109)
+    labelopt.place(relx=0.016, rely=0.352, height=31, width=125)
     labelopt.configure(text='''Menu de Opções:''', relief="groove", background="#0082ba", foreground="white")
     
     window7.mainloop()
